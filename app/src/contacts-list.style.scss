@@ -1,0 +1,8 @@
+$border-color: #0066EE;
+
+.contacts-list {
+  .contact-item {
+    border: $border-color solid .1rem;
+    padding: .2rem;
+  }
+}

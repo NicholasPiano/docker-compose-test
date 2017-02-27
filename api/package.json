@@ -1,0 +1,16 @@
+{
+  "name": "contacts-api",
+  "version": "1.0.0",
+  "main": "api.js",
+  "dependencies": {
+    "assert": "^1.4.1",
+    "mongodb": "^2.2.21",
+    "restify": "^4.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  },
+  "scripts": {
+    "start": "./node_modules/.bin/nodemon --watch ./src ./src/api"
+  }
+}
