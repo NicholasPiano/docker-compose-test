@@ -1,10 +1,10 @@
 export default {
-  template:
+	template:
 `
 <contact-form model="$ctrl.model"></contact-form>
 <contacts-list></contacts-list>
 `,
-  controller: ($scope) => {
-    $scope.model = {};
-  }
+	controller: ($scope) => {
+		$scope.model = {};
+	}
 };

@@ -1,5 +1,5 @@
 export default ($scope) => {
-  $scope.formModel = {
+	$scope.formModel = {
 		
-  };
+	};
 };

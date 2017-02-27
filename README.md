@@ -44,16 +44,16 @@ The web application has the ability to add a contact through a form with a singl
 Currently you have to reload the application in order to see new contacts reflected in your contacts list.
 
 - Add the ability to add a contact with the following fields some of which are required (marked with \*).
-  - First name *
-  - Last name *
-  - Email address *
-  - Photo
-  - Company
-  - Job title
-  - Phone number
-  - Birthday
-  - Address
-  - Notes
+	- First name *
+	- Last name *
+	- Email address *
+	- Photo
+	- Company
+	- Job title
+	- Phone number
+	- Birthday
+	- Address
+	- Notes
 - Add validation for these fields and provide user feedback when necessary.
 - Add the ability to edit an existing contact.
 - Add the ability to delete an existing contact.
@@ -68,13 +68,13 @@ As you work on the project please make use of Git to record your progress.
 
 When submitting your work push your Git repository somewhere we can access it such as GitHub or Bitbucket, or zip the repository and send it to us as an attachment.
 
-[angular-docs]:          https://docs.angularjs.org/
-[babel]:                 https://babeljs.io/
-[docker-compose]:        https://docs.docker.com/compose/install/
-[es2015]:                https://babeljs.io/learn-es2015/
+[angular-docs]:					https://docs.angularjs.org/
+[babel]:								 https://babeljs.io/
+[docker-compose]:				https://docs.docker.com/compose/install/
+[es2015]:								https://babeljs.io/learn-es2015/
 [mongodb-nodejs-driver]: http://mongodb.github.io/node-mongodb-native/2.2/
-[restify]:               http://restify.com/
-[webpack-dev-server]:    https://webpack.github.io/docs/webpack-dev-server.html
-[webpack]:               https://webpack.github.io/
-[github]:                https://github.com/
-[bitbucket]:             https://bitbucket.org/
+[restify]:							 http://restify.com/
+[webpack-dev-server]:		https://webpack.github.io/docs/webpack-dev-server.html
+[webpack]:							 https://webpack.github.io/
+[github]:								https://github.com/
+[bitbucket]:						 https://bitbucket.org/
