@@ -7,7 +7,10 @@ export default {
 	<h4>Contacts</h4>
 	<p ng-if="!contacts.length">You have no contacts.</p>
 	<ul ng-if="contacts.length">
-		<li class="contact-item" ng-repeat="contact in contacts" ng-bind="contact.fname"></li>
+		<li class="contact-item" ng-repeat="contact in contacts">
+			<span ng-bind="contact.fname"></span>
+			<span ng-bind="contact.lname"></span>
+		</li>
 	<ul>
 </div>
 `,
