@@ -11,19 +11,34 @@ MongoClient.connect(url, (err, db) => {
 
 module.exports = {
 	get: {
-		route: '/contacts',
+		route: /^\/contacts\/*([^\/]*)\/*([^\/]*)\/*/,
 		respond: (req, res, next) => {
-			MongoClient.connect(url, (err, db) => {
-				db.collection('contacts')
-					.find()
-					.toArray((err, contacts) => {
-						let body = err ? JSON.stringify(err) : contacts;
-						res.send(body);
-						console.log(`GET: /contacts/\n${JSON.stringify(body, null, 2)}`);
+			if (req.params[0] === '') {
+				MongoClient.connect(url, (err, db) => {
+					db.collection('contacts')
+						.find()
+						.toArray((err, contacts) => {
+							let body = err ? JSON.stringify(err) : contacts;
+							res.send(body);
+							console.log(`GET: /contacts/\n${JSON.stringify(body, null, 2)}`);
+						});
+					db.close();
+					next();
+				});
+			} else {
+				let command = req.params[0];
+				let arg = (req.params[1] || '');
+
+				if (command === 'remove') {
+					let condition = arg === 'all' ? {} : {_id: arg};
+					MongoClient.connect(url, (err, db) => {
+						db.collection('contacts').remove(condition);
+						db.close();
+						res.send([]);
+						next();
 					});
-				db.close();
-				next();
-			});
+				}
+			}
 		}
 	},
 	post: {

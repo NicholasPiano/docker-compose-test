@@ -1,0 +1,22 @@
+In order to change anything, things have to be added in several places:
+
+1. App component files
+
+contact-form.component.js
+contacts-list.component.js
+
+2. App service if api required
+
+New functions go in contacts.service.js
+
+3. Api
+
+
+
+4. Modify database
+
+TODO:
+1. Add button that resets the database and updates the list.
+	a. Add button in contact-form.component.js and corresponding method in $scope.
+	b. Add api call in contacts.service.js
+	c. 

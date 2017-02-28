@@ -16,8 +16,7 @@ export default {
 `,
 	controller: ($scope, ContactsService) => {
 		$scope.contacts = [];
-		ContactsService.retrieve().then((response) => {
-			$scope.contacts = response.data;
-		});
+		$scope.contacts = ContactsService.contacts;
+		ContactsService.retrieve();
 	}
 };
