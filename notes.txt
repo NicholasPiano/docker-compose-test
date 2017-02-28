@@ -19,4 +19,8 @@ TODO:
 1. Add button that resets the database and updates the list.
 	a. Add button in contact-form.component.js and corresponding method in $scope.
 	b. Add api call in contacts.service.js
-	c. 
+	c. Restructure service to contain variable that can be shared between scopes.
+
+	DONE
+
+2. 
