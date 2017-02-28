@@ -5,9 +5,9 @@ export default {
 `
 <div class="contacts-list">
 	<h4>Contacts</h4>
-	<p ng-if="!contacts.length">You have no contacts.</p>
-	<ul ng-if="contacts.length">
-		<li class="contact-item" ng-repeat="contact in contacts">
+	<p ng-if="!ContactsService.contacts.length">You have no contacts.</p>
+	<ul ng-if="ContactsService.contacts.length">
+		<li class="contact-item" ng-repeat="contact in ContactsService.contacts">
 			<span ng-bind="contact.fname"></span>
 			<span ng-bind="contact.lname"></span>
 		</li>
@@ -15,9 +15,7 @@ export default {
 </div>
 `,
 	controller: ($scope, ContactsService) => {
-		$scope.contacts = [];
-		ContactsService.retrieve().then((response) => {
-			$scope.contacts = response.data;
-		});
+		$scope.ContactsService = ContactsService;
+		ContactsService.retrieve();
 	}
 };
