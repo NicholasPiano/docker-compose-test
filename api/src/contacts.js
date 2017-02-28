@@ -1,4 +1,5 @@
 const MongoClient = require('mongodb').MongoClient;
+const ObjectId = require('mongodb').ObjectId;
 const process		 = require('process');
 const assert			= require('assert');
 
@@ -30,7 +31,7 @@ module.exports = {
 				let arg = (req.params[1] || '');
 
 				if (command === 'remove') {
-					let condition = arg === 'all' ? {} : {_id: arg};
+					let condition = arg === 'all' ? {} : {_id: ObjectId(arg)};
 					MongoClient.connect(url, (err, db) => {
 						db.collection('contacts').remove(condition);
 						db.close();
