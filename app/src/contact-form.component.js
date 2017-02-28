@@ -17,7 +17,7 @@ export default {
 
 		// actions
 		$scope.onClickedSubmit = () => {
-			let model = angular.copy($scope.$ctrl.model);
+			let model = angular.copy($scope.$ctrl.model); // disconnects from the list element
 			$scope.$ctrl.model = {};
 			ContactsService.create(model);
 		};

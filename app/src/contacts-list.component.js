@@ -9,7 +9,7 @@ export default {
 	<ul ng-if="ContactsService.contacts.length">
 		<li class="contact-item" ng-repeat="contact in ContactsService.contacts">
 			<span ng-bind="contact.fname"></span>
-			<span ng-bind="contact.lname"></span>
+			<button ng-click="deleteContact($index)">delete</button>
 		</li>
 	<ul>
 </div>
@@ -17,5 +17,10 @@ export default {
 	controller: ($scope, ContactsService) => {
 		$scope.ContactsService = ContactsService;
 		ContactsService.retrieve();
+
+		// methods
+		$scope.deleteContact = (index) => {
+			ContactsService.remove(index);
+		}
 	}
 };
