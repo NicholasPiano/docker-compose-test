@@ -5,15 +5,19 @@ export default ($http) => {
 			ContactsService.contacts.push(model);
 			return $http.post('/api/contacts', model);
 		},
+		remove: (index) => {
+			let [removed] = ContactsService.contacts.splice(index, 1);
+			return $http.get(`/api/contacts/remove/${removed._id}`);
+		},
 		removeAll: () => {
-			return $http.get('/api/contacts/remove/all').then(function () {
-				ContactsService.contacts = [];
-				return ContactsService.contacts;
-			});
+			ContactsService.contacts = [];
+			return $http.get('/api/contacts/remove/all');
 		},
 		retrieve: () => {
 			return $http.get('/api/contacts').then(function (results) {
 				ContactsService.contacts = angular.copy(results.data);
+
+				// Not actually returning anything since the controllers are just watching this variable.
 				return ContactsService.contacts;
 			});
 		}

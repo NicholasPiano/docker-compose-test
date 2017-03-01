@@ -1,4 +1,5 @@
 const MongoClient = require('mongodb').MongoClient;
+const ObjectId = require('mongodb').ObjectId;
 const process		 = require('process');
 const assert			= require('assert');
 
@@ -11,6 +12,7 @@ MongoClient.connect(url, (err, db) => {
 
 module.exports = {
 	get: {
+		// url looks for /contacts/command/arg/. command, arg, and slashes are optional -> could be: /contact
 		route: /^\/contacts\/*([^\/]*)\/*([^\/]*)\/*/,
 		respond: (req, res, next) => {
 			if (req.params[0] === '') {
@@ -30,14 +32,18 @@ module.exports = {
 				let arg = (req.params[1] || '');
 
 				if (command === 'remove') {
-					let condition = arg === 'all' ? {} : {_id: arg};
+					// empty document removes everything {}
+					// ObjectId must be used to convert string into I have no idea why.
+					let condition = arg === 'all' ? {} : {_id: ObjectId(arg)};
 					MongoClient.connect(url, (err, db) => {
 						db.collection('contacts').remove(condition);
 						db.close();
-						res.send([]);
+						res.send([]); // send whatever
 						next();
 					});
 				}
+
+				// can add update here.
 			}
 		}
 	},
