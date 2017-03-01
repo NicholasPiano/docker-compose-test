@@ -16,6 +16,8 @@ export default ($http) => {
 		retrieve: () => {
 			return $http.get('/api/contacts').then(function (results) {
 				ContactsService.contacts = angular.copy(results.data);
+
+				// Not actually returning anything since the controllers are just watching this variable.
 				return ContactsService.contacts;
 			});
 		}

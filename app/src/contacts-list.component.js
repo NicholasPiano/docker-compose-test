@@ -19,7 +19,7 @@ export default {
 		ContactsService.retrieve();
 
 		// methods
-		$scope.deleteContact = (index) => {
+		$scope.deleteContact = (index) => { // that was easy
 			ContactsService.remove(index);
 		}
 	}
